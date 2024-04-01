@@ -1,10 +1,13 @@
-const { app, BrowserWindow, dialog, ipcRenderer } = require('electron')
-const path = require('path')
-const fs = require('fs')
-const { Client, Authenticator } = require('minecraft-launcher-core');
-const { log, error } = require('console');
+const requires = (val) => {
+  return require(`${__dirname}/../app.asar/node_modules/${val}`);
+}
+const { app, BrowserWindow, dialog, ipcRenderer } = requires('electron')
+const path = requires('path')
+const fs = requires('fs')
+const { Client, Authenticator } = requires('minecraft-launcher-core');
+const { log, error } = requires('console');
 const installRoot = path.join(process.env.appdata, '.minecraft')
-const { download } = require('electron-dl')
+const { download } = requires('electron-dl')
 console.log('[DEBUG] InstallRoot Detected:');
 console.log(installRoot);
 
