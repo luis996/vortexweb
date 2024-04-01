@@ -1,5 +1,5 @@
 const requires = (val) => {
-  return require(`${__dirname}/../app.asar/node_modules/${val}`);
+  return require(`${val}`);
 }
 const { app, BrowserWindow, dialog, ipcRenderer } = requires('electron')
 const path = requires('path')
